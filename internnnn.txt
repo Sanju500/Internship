@@ -1,0 +1,40 @@
+#include<stdio.h>
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+string Xoring(string str)
+{
+    string str1=str;
+   for(int j=0;j<(str.size()-2);j++)
+   {
+     string ans="";
+     for(int i=0;i<(str1.size()-1);i++)
+      {
+        if(str1[i]==str1[i+1])
+         ans+='0';
+        else
+         ans+='1';
+      }
+     str1=ans;
+   }
+
+   return str1;
+}
+int main()
+{
+   string str;
+   string ans="";
+   cout<<"Enter the string to be encrypted" << endl;
+   getline(cin, str);
+   string result=Xoring(str);
+   ans=result[0];
+   if(result[0]==result[1])
+      ans+='0';
+   else
+      ans+='1';
+   ans+=result[1];
+   cout<<"String after encryption is: " <<endl;
+   cout<<ans<<endl;
+}
